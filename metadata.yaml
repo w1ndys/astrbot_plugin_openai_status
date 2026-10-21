@@ -1,0 +1,13 @@
+name: astrbot_plugin_openai_status
+display_name: OpenAI 状态监控
+short_desc: 监控 OpenAI 状态页，事件状态变化时推送到订阅群
+desc: |
+  只读 OpenAI 官方状态页的公开接口，只看页面是否显示“一切运行正常”。
+  每轮比较事件状态，新出现与状态变化合并成一条消息，推送到已订阅的群。
+  订阅与变更记录在插件页面管理，也支持 oaistatus 命令查询当前状态。
+version: 0.1.0
+author: w1ndys
+repo: https://github.com/w1ndys/astrbot_plugin_openai_status
+astrbot_version: ">=4.13"
+support_platforms:
+  - aiocqhttp
