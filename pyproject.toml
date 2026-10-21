@@ -1,0 +1,53 @@
+[project]
+# 只给 uv 建虚拟环境与装开发工具用；插件由 AstrBot 直接加载源码，不作为包发布
+name = "astrbot-plugin-openai-status"
+version = "0.1.0"
+description = "AstrBot 插件：轮询 OpenAI 状态页并在事件状态变化时推送"
+requires-python = ">=3.12"
+dependencies = ["aiohttp>=3.9"]
+
+[dependency-groups]
+# 开发工具装进 .venv，uv run 直接调用，不再依赖全局安装
+dev = ["ruff>=0.17.1", "pyrefly"]
+
+[tool.uv]
+# 不作为可安装包处理，uv 只负责虚拟环境与锁定
+package = false
+
+[[tool.uv.index]]
+# 国内网络优先走清华镜像；海外环境可删掉这一段回默认 PyPI
+name = "tuna"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
+
+[tool.ruff]
+# 只影响 ruff，不改变插件运行时依赖。
+# 行宽与规则集跟同作者的 astrbot_plugin_w1ndys_rules 保持一致。
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# 默认 pyflakes / pycodestyle 子集，再加契约里的两条：禁止裸 except，限制函数语句数。
+# E402 留在默认集里。测试必须先改 sys.path 再导入，所以只在 tests 下忽略这一条。
+select = ["E4", "E7", "E9", "F", "E722", "S110", "PLR0915"]
+# 协议端和模型抛出的异常类型不固定。捕获 Exception 后当未检出或跳过，文件里已有原因注释。
+ignore = ["BLE001"]
+
+[tool.ruff.lint.pylint]
+# PLR0915 数的是语句，不是「去掉空行和注释后的行数」。50 是契约上限的可执行近似。
+max-statements = 50
+
+[tool.ruff.lint.per-file-ignores]
+# 测试在导入插件前把仓库父目录放进 sys.path。这是现有加载方式，不改成安装包。
+"tests/**/*.py" = ["E402"]
+
+[tool.pyrefly]
+# 类型检查只覆盖不依赖 AstrBot 的代码；collector 依赖 aiohttp、main 依赖 astrbot，补桩后再纳入。
+# 不配置 preset 时 Pyrefly 用 basic，只报语法类问题，查不出参数/返回值类型错误。
+preset = "default"
+python-version = "3.12"
+project-includes = ["entity/**/*.py", "data/**/*.py", "tests/**/*.py"]
+# 入口测试靠动态注入 astrbot 替身，模块属性运行期才存在；类型检查看不出这层结构。
+project-excludes = ["tests/test_main.py"]
+# typings/ 下是 AstrBot 的最小类型桩；显式声明，IDE 里的 pyrefly 也能解析。
+site-packages-path = ["typings"]

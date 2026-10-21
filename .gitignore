@@ -1,0 +1,24 @@
+# 不提交本机缓存、虚拟环境与 SQLite 运行时文件。
+
+__pycache__/
+*.py[cod]
+*$py.class
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+.DS_Store
+
+# 前端依赖本机安装，构建产物 views/status/ 要提交，GitHub 直装才有页面。
+dashboard/node_modules/
+dashboard/dist/
+.pnpm-store/
+
+# 本地开发预览的截图，不进仓库。
+browser-screenshots/
+
+# 业务库在 AstrBot data 目录，测试库在临时目录；仓库里出现 db 多半是误跑出来的。
+*.db
+*.db-wal
+*.db-shm

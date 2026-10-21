@@ -1,0 +1,34 @@
+{
+  "enabled": {
+    "description": "启用状态监控",
+    "type": "bool",
+    "default": false,
+    "hint": "关闭后不采集状态也不推送通知；查询命令会提示监控已关闭。"
+  },
+  "poll_interval_seconds": {
+    "description": "轮询间隔（秒）",
+    "type": "int",
+    "default": 60,
+    "slider": {"min": 30, "max": 3600, "step": 10},
+    "hint": "两次采集之间的间隔。状态页前端每 60 秒刷新一次，低于 30 秒没有意义。"
+  },
+  "notify_enabled": {
+    "description": "启用通知推送",
+    "type": "bool",
+    "default": true,
+    "hint": "关闭后仍然采集并入库，只是不推送。"
+  },
+  "history_retention_days": {
+    "description": "变更记录保留天数",
+    "type": "int",
+    "default": 30,
+    "slider": {"min": 1, "max": 365, "step": 1},
+    "hint": "每轮采集后清理超过该天数的变更记录与推送记录。"
+  },
+  "display_timezone": {
+    "description": "展示时区",
+    "type": "string",
+    "default": "Asia/Shanghai",
+    "hint": "填 IANA 时区名（Continent/City），例如 Asia/Shanghai、America/New_York，或 UTC。不要填 UTC+8、GMT+8 或「北京时间」；页面保存时会拒绝非法名称，运行时非法值回退到 Asia/Shanghai。"
+  }
+}
