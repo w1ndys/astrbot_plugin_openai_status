@@ -112,4 +112,5 @@ OPENAI_STATUS_LIVE=1 uv run python -m unittest tests.test_live -v
 
 - 接口依据：[ai-kit：OpenAI 状态页监控 API 文档](https://github.com/w1ndys/ai-kit/blob/main/docs/openai-status-api.md)
 - 规格与任务表：`specs/openai-status-monitor/`
+- 合并记录：<https://github.com/w1ndys/astrbot_plugin_openai_status/pull/1>
 - 参考实现：[astrbot_plugin_deepseek_status](https://github.com/w1ndys/astrbot_plugin_deepseek_status)

@@ -84,5 +84,5 @@
   - [x] 9.6 真实 AstrBot 隔离环境导入 `main.py`
 
 - [ ] 10. 交付
-  - [ ] 10.1 分支提交、PR、合并 `main`
-  - [ ] 10.2 在 `w1ndys/dev-memory` 登记本周期
+  - [x] 10.1 分支提交、PR、合并 `main`
+  - [x] 10.2 在 `w1ndys/dev-memory` 登记本周期
