@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "id": "01JMDK9XYNY6RXSED6SDWW50WY",
+    "components": [
+      {
+        "id": "01JMXBRMFE6N2NNT7DG6XZQ6PW",
+        "name": "Chat Completions"
+      },
+      {
+        "id": "01JMXBRMFEMZK0HPK19RYET250",
+        "name": "Fine-tuning"
+      }
+    ],
+    "affected_components": [],
+    "ongoing_incidents": [],
+    "scheduled_maintenances": []
+  }
+}
