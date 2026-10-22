@@ -78,7 +78,7 @@ data/plugin_data/astrbot_plugin_openai_status/openai_status.db
 
 ## 验证
 
-2026-10-21 在 AstrBot 4.29.1 通过 GitHub 安装并启用，60 秒轮询正常；实际群聊里收到事件状态变化通知与开启摘要，`oaistatus` 命令可用。仓库内的 `views/status/` 与服务端安装目录的 `index.html`、`index.js`、`style.css` 校验和一致。
+2026-10-21 在 AstrBot 4.29.1 通过 GitHub 安装并启用，60 秒轮询正常；实际群聊里收到事件状态变化通知与开启摘要，`oaistatus` 命令可用。页面三个 Tab 已在 WebUI 内验收。仓库内的 `views/status/` 与服务端安装目录的 `index.html`、`index.js`、`style.css` 校验和一致。
 
 ## 开发
 
