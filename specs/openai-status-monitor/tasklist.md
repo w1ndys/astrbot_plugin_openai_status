@@ -82,6 +82,7 @@
   - [x] 9.4 `cd dashboard && pnpm build`（含 `tsc --noEmit`）
   - [x] 9.5 真实网络冒烟 `OPENAI_STATUS_LIVE=1`
   - [x] 9.6 真实 AstrBot 隔离环境导入 `main.py`
+  - [x] 9.7 真实 AstrBot 4.29.1 安装、轮询、命令与推送实测
 
 - [ ] 10. 交付
   - [x] 10.1 分支提交、PR、合并 `main`
